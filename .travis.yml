@@ -1,0 +1,9 @@
+dist: xenial
+language: node_js
+node_js: 12
+cache: yarn
+
+before_script:
+  - yarn typecheck
+  - yarn lint:fix
+script: true # no tests

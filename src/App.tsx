@@ -1,9 +1,12 @@
 import React from "react";
-import { Dashboard } from "./Dashboard";
+
+import { LoadableActivityHistoryList } from "./LoadableActivityHistoryList";
+import { LoadableInProgressSummary } from "./LoadableInProgressSummary";
 
 const App: React.FC = () => (
   <main className="App">
-    <Dashboard />
+    <LoadableInProgressSummary />
+    <LoadableActivityHistoryList />
   </main>
 );
 
