@@ -3,6 +3,7 @@ import { groupBy, mapValues, toPairs, orderBy } from "lodash";
 import moment from "moment";
 import axios from "axios";
 
+import { BACKEND_HOST } from "./config";
 import { LoadableText } from "./Loadable";
 import { PullRequest } from "./PullRequestSummary";
 import { ActivityDateSummary, DateSummary } from "./DateSummary";
@@ -64,7 +65,7 @@ interface ActivityHistoryListProps {
 
 const getActivitiesByDate = async (): Promise<ActivityHistoryListProps> => {
   const response = await axios.get<ActivityHistoryItem[]>(
-    "/api/activities/history/"
+    `${BACKEND_HOST}/api/activities/history/`
   );
   const dateSummaries = activityDateSummariesFromActivityHistory(response.data);
   return { dateSummaries };
