@@ -12,6 +12,14 @@ Use [yarn](https://yarnpkg.com/) to install JavaScript dependencies:
 
     yarn install
 
-### Configuration
+### Running Locally
 
-Rooster reads in environment variables from your local `.env` file. See `.env-sample` for configuration options.
+First run [nginx](https://www.nginx.com/) with the local nginx configuration:
+
+    nginx -p . -c nginx/local.conf
+
+Then start the frontend with yarn:
+
+    yarn start
+
+The frontend should be accessible at http://localhost:9000/.

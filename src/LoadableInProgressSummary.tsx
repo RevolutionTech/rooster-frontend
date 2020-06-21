@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import { BACKEND_HOST } from "./config";
 import { LoadableText } from "./Loadable";
 import { JiraTicket, JiraTicketSummary } from "./JiraTicketSummary";
 
@@ -11,7 +10,7 @@ interface ActivitiesInProgress {
 
 const getActivitiesInProgress = async (): Promise<ActivitiesInProgress> => {
   const response = await axios.get<ActivitiesInProgress>(
-    `${BACKEND_HOST}/api/activities/in-progress/`
+    "/api/activities/in-progress/"
   );
   return response.data;
 };
