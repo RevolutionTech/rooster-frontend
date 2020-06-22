@@ -62,7 +62,7 @@ interface ActivityHistoryListProps {
   dateSummaries: ActivityDateSummary[];
 }
 
-const getActivitiesByDate = async (): Promise<ActivityHistoryListProps> => {
+const getActivitiesByDate = async () => {
   const response = await axios.get<ActivityHistoryItem[]>(
     "/api/activities/history/"
   );

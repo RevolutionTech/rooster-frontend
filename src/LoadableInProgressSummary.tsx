@@ -8,7 +8,7 @@ interface ActivitiesInProgress {
   jira_tickets: JiraTicket[];
 }
 
-const getActivitiesInProgress = async (): Promise<ActivitiesInProgress> => {
+const getActivitiesInProgress = async () => {
   const response = await axios.get<ActivitiesInProgress>(
     "/api/activities/in-progress/"
   );
