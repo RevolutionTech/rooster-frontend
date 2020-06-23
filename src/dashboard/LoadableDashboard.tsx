@@ -3,9 +3,13 @@ import axios from "axios";
 
 import { LoadableView } from "../common/Loadable";
 import { UnauthenticatedUser } from "../auth/UnauthenticatedUser";
-import { User, UserAppBar } from "./UserAppBar";
+import { UserAppBar } from "../nav/UserAppBar";
 import { LoadableActivityHistoryList } from "./LoadableActivityHistoryList";
 import { LoadableInProgressSummary } from "./LoadableInProgressSummary";
+
+interface User {
+  full_name: string;
+}
 
 const getUser = async () => {
   const response = await axios.get<User>("/api/user/");
@@ -14,7 +18,7 @@ const getUser = async () => {
 
 const Dashboard: React.FC<User> = (props: User) => (
   <>
-    <UserAppBar {...props} />
+    <UserAppBar>Signed in as {props.full_name}.</UserAppBar>
     <LoadableInProgressSummary />
     <LoadableActivityHistoryList />
   </>

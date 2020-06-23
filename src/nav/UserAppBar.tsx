@@ -1,10 +1,6 @@
 import React from "react";
 import { makeStyles, AppBar, Toolbar, Typography } from "@material-ui/core";
 
-export interface User {
-  full_name: string;
-}
-
 const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
@@ -14,7 +10,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const UserAppBar: React.FC<User> = (props: User) => {
+export const UserAppBar: React.FC = (
+  props: React.PropsWithChildren<unknown>
+) => {
   const classes = useStyles();
 
   return (
@@ -24,7 +22,7 @@ export const UserAppBar: React.FC<User> = (props: User) => {
           <Typography variant="h6" className={classes.title}>
             Rooster
           </Typography>
-          Signed in as {props.full_name}.
+          {props.children}
         </Toolbar>
       </AppBar>
     </div>
