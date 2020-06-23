@@ -3,7 +3,7 @@ import { groupBy, mapValues, toPairs, orderBy } from "lodash";
 import moment from "moment";
 import axios from "axios";
 
-import { LoadableText } from "../common/Loadable";
+import { LoadableView } from "../common/Loadable";
 import { PullRequest } from "./PullRequestSummary";
 import { ActivityDateSummary, DateSummary } from "./DateSummary";
 
@@ -83,7 +83,7 @@ const ActivityHistoryList: React.FC<ActivityHistoryListProps> = (
 };
 
 export const LoadableActivityHistoryList: React.FC = () => (
-  <LoadableText
+  <LoadableView
     getProps={getActivitiesByDate}
     component={ActivityHistoryList}
   />

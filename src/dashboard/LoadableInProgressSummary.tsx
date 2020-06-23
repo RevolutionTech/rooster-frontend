@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { LoadableText } from "../common/Loadable";
+import { LoadableView } from "../common/Loadable";
 import { JiraTicket, JiraTicketSummary } from "./JiraTicketSummary";
 
 interface ActivitiesInProgress {
@@ -32,7 +32,7 @@ const InProgressSummary: React.FC<ActivitiesInProgress> = (
   ) : null;
 
 export const LoadableInProgressSummary: React.FC = () => (
-  <LoadableText
+  <LoadableView
     getProps={getActivitiesInProgress}
     component={InProgressSummary}
   />

@@ -2,7 +2,7 @@ import React from "react";
 
 import { assertNever } from "./assert";
 
-export enum LoadableState {
+enum LoadableState {
   LOADING = "loading",
   SUCCESS = "success",
   FAILURE = "failure",
@@ -15,7 +15,7 @@ type Loadable<T, E> =
   | { state: LoadableState.FAILURE; error: E }
   | { state: LoadableState.SUCCESS; data: T };
 
-export function useLoadable<T, E>(fetcher: () => Promise<T>): Loadable<T, E> {
+function useLoadable<T, E>(fetcher: () => Promise<T>): Loadable<T, E> {
   const [loadable, setLoadable] = React.useState<Loadable<T, E>>({
     state: LoadableState.LOADING,
   });
@@ -35,19 +35,32 @@ export function useLoadable<T, E>(fetcher: () => Promise<T>): Loadable<T, E> {
   return loadable;
 }
 
-interface LoadableTextProps<T> {
+interface LoadableViewProps<T, E> {
   getProps: () => Promise<T>;
   component: React.ComponentType<T>;
+  loadingComponent?: React.ComponentType;
+  failureComponent?: React.ComponentType<E>;
 }
 
-export function LoadableText<T>(
-  props: LoadableTextProps<T>
+const DEFAULT_LOADING_COMPONENT: React.FC = () => <p>Loading...</p>;
+const DEFAULT_FAILURE_COMPONENT: React.FC = () => <p>ERROR!</p>;
+
+export function LoadableView<T, E>(
+  props: LoadableViewProps<T, E>
 ): React.ReactElement {
-  const loadable = useLoadable(props.getProps);
+  const loadable = useLoadable<T, E>(props.getProps);
   if (loadable.state === LoadableState.LOADING) {
-    return <p>Loading...</p>;
+    return props.loadingComponent == null ? (
+      <DEFAULT_LOADING_COMPONENT />
+    ) : (
+      <props.loadingComponent />
+    );
   } else if (loadable.state === LoadableState.FAILURE) {
-    return <p>ERROR!</p>;
+    return props.failureComponent == null ? (
+      <DEFAULT_FAILURE_COMPONENT />
+    ) : (
+      <props.failureComponent {...loadable.error} />
+    );
   } else if (loadable.state === LoadableState.SUCCESS) {
     return <props.component {...loadable.data} />;
   } else {
