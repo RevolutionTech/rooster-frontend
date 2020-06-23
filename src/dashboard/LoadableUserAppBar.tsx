@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { makeStyles, AppBar, Toolbar, Typography } from "@material-ui/core";
 
-import { LoadableText } from "./Loadable";
+import { LoadableText } from "../common/Loadable";
 
 interface User {
   full_name: string;

@@ -3,7 +3,7 @@ import { groupBy, mapValues, toPairs, orderBy } from "lodash";
 import moment from "moment";
 import axios from "axios";
 
-import { LoadableText } from "./Loadable";
+import { LoadableText } from "../common/Loadable";
 import { PullRequest } from "./PullRequestSummary";
 import { ActivityDateSummary, DateSummary } from "./DateSummary";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import { LoadableText } from "./Loadable";
+import { LoadableText } from "../common/Loadable";
 import { JiraTicket, JiraTicketSummary } from "./JiraTicketSummary";
 
 interface ActivitiesInProgress {

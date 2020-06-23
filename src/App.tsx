@@ -1,8 +1,8 @@
 import React from "react";
 
-import { LoadableUserAppBar } from "./LoadableUserAppBar";
-import { LoadableActivityHistoryList } from "./LoadableActivityHistoryList";
-import { LoadableInProgressSummary } from "./LoadableInProgressSummary";
+import { LoadableUserAppBar } from "./dashboard/LoadableUserAppBar";
+import { LoadableActivityHistoryList } from "./dashboard/LoadableActivityHistoryList";
+import { LoadableInProgressSummary } from "./dashboard/LoadableInProgressSummary";
 
 const App: React.FC = () => (
   <main className="App">
