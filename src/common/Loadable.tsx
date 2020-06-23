@@ -1,20 +1,22 @@
 import React from "react";
 
-enum LoadableState {
+import { assertNever } from "./assert";
+
+export enum LoadableState {
   LOADING = "loading",
   SUCCESS = "success",
   FAILURE = "failure",
 }
 
-type Loadable<T> =
+type Loadable<T, E> =
   | {
       state: LoadableState.LOADING;
     }
-  | { state: LoadableState.FAILURE; error: unknown }
+  | { state: LoadableState.FAILURE; error: E }
   | { state: LoadableState.SUCCESS; data: T };
 
-function useLoadable<T>(fetcher: () => Promise<T>): Loadable<T> {
-  const [loadable, setLoadable] = React.useState<Loadable<T>>({
+export function useLoadable<T, E>(fetcher: () => Promise<T>): Loadable<T, E> {
+  const [loadable, setLoadable] = React.useState<Loadable<T, E>>({
     state: LoadableState.LOADING,
   });
 
@@ -46,7 +48,9 @@ export function LoadableText<T>(
     return <p>Loading...</p>;
   } else if (loadable.state === LoadableState.FAILURE) {
     return <p>ERROR!</p>;
-  } else {
+  } else if (loadable.state === LoadableState.SUCCESS) {
     return <props.component {...loadable.data} />;
+  } else {
+    assertNever(loadable);
   }
 }

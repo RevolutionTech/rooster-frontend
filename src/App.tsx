@@ -1,14 +1,10 @@
 import React from "react";
 
-import { LoadableUserAppBar } from "./dashboard/LoadableUserAppBar";
-import { LoadableActivityHistoryList } from "./dashboard/LoadableActivityHistoryList";
-import { LoadableInProgressSummary } from "./dashboard/LoadableInProgressSummary";
+import { LoadableDashboard } from "./dashboard/LoadableDashboard";
 
 const App: React.FC = () => (
   <main className="App">
-    <LoadableUserAppBar />
-    <LoadableInProgressSummary />
-    <LoadableActivityHistoryList />
+    <LoadableDashboard />
   </main>
 );
 

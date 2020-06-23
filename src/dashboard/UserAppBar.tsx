@@ -1,17 +1,9 @@
 import React from "react";
-import axios from "axios";
 import { makeStyles, AppBar, Toolbar, Typography } from "@material-ui/core";
 
-import { LoadableText } from "../common/Loadable";
-
-interface User {
+export interface User {
   full_name: string;
 }
-
-const getUser = async () => {
-  const response = await axios.get<User>("/api/user/");
-  return response.data;
-};
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const UserAppBar: React.FC<User> = (props: User) => {
+export const UserAppBar: React.FC<User> = (props: User) => {
   const classes = useStyles();
 
   return (
@@ -38,7 +30,3 @@ const UserAppBar: React.FC<User> = (props: User) => {
     </div>
   );
 };
-
-export const LoadableUserAppBar: React.FC = () => (
-  <LoadableText getProps={getUser} component={UserAppBar} />
-);
