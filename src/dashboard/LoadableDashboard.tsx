@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "@material-ui/core";
 
 import { LoadableView } from "../common/Loadable";
 import { UnauthenticatedUser } from "../auth/UnauthenticatedUser";
@@ -18,7 +19,12 @@ const getUser = async () => {
 
 const Dashboard: React.FC<User> = (props: User) => (
   <>
-    <UserAppBar>Signed in as {props.full_name}.</UserAppBar>
+    <UserAppBar>
+      Signed in as {props.full_name}.{" "}
+      <Link href="/logout/" color="inherit" style={{ marginLeft: "1em" }}>
+        Logout
+      </Link>
+    </UserAppBar>
     <LoadableInProgressSummary />
     <LoadableActivityHistoryList />
   </>
