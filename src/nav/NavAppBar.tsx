@@ -10,6 +10,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 
 interface Props {
+  userInfo: React.ReactNode;
   onToggleDrawer: () => void;
 }
 
@@ -22,9 +23,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export const NavAppBar: React.FC<Props> = (
-  props: React.PropsWithChildren<Props>
-) => {
+export const NavAppBar: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
 
   return (
@@ -42,7 +41,7 @@ export const NavAppBar: React.FC<Props> = (
         <Typography variant="h6" className={classes.title}>
           Rooster
         </Typography>
-        {props.children}
+        {props.userInfo}
       </Toolbar>
     </AppBar>
   );

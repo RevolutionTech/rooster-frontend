@@ -5,6 +5,7 @@ import { NavAppBar } from "./NavAppBar";
 import { NavDrawer } from "./NavDrawer";
 
 interface Props {
+  userInfo: React.ReactNode;
   menuDisabled?: boolean;
 }
 
@@ -14,17 +15,16 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const NavContainer: React.FC<Props> = (
-  props: React.PropsWithChildren<Props>
-) => {
+export const NavContainer: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <div className={classes.root}>
-      <NavAppBar onToggleDrawer={() => setDrawerOpen(!isDrawerOpen)}>
-        {props.children}
-      </NavAppBar>
+      <NavAppBar
+        userInfo={props.userInfo}
+        onToggleDrawer={() => setDrawerOpen(!isDrawerOpen)}
+      />
       <NavDrawer
         isOpen={isDrawerOpen}
         onClose={() => setDrawerOpen(false)}

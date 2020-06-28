@@ -6,7 +6,7 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { NavContainer } from "../nav/NavContainer";
 
-export const UnauthenticatedUser: React.FC<AxiosError> = (
+export const UnauthenticatedUserRoute: React.FC<AxiosError> = (
   props: AxiosError
 ) => {
   const response = props.response;
@@ -17,15 +17,18 @@ export const UnauthenticatedUser: React.FC<AxiosError> = (
   ) {
     return (
       <>
-        <NavContainer menuDisabled={true}>
-          <Button
-            variant="contained"
-            startIcon={<GitHubIcon />}
-            href="/login/github/"
-          >
-            Login with Github
-          </Button>
-        </NavContainer>
+        <NavContainer
+          userInfo={
+            <Button
+              variant="contained"
+              startIcon={<GitHubIcon />}
+              href="/login/github/"
+            >
+              Login with Github
+            </Button>
+          }
+          menuDisabled={true}
+        />
         <p>You must be signed in to view Rooster.</p>
       </>
     );

@@ -1,15 +1,10 @@
 import React from "react";
-import {
-  makeStyles,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@material-ui/core";
+import { makeStyles, Drawer, List } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+
+import { ListItemLink } from "./ListItemLink";
 
 interface Props {
   isOpen: boolean;
@@ -35,29 +30,25 @@ export const NavDrawer: React.FC<Props> = (props: Props) => {
         onKeyDown={props.onClose}
       >
         <List>
-          <ListItem button component="a" href="/" disabled={props.menuDisabled}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem button disabled={props.menuDisabled}>
-            <ListItemIcon>
-              <SettingsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Settings" />
-          </ListItem>
-          <ListItem
-            button
-            component="a"
-            href="/logout/"
+          <ListItemLink
+            text="Dashboard"
+            to="/"
+            icon={HomeIcon}
             disabled={props.menuDisabled}
-          >
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
-            <ListItemText primary="Logout" />
-          </ListItem>
+          />
+          <ListItemLink
+            text="Settings"
+            to="/settings/"
+            icon={SettingsIcon}
+            disabled={props.menuDisabled}
+          />
+          <ListItemLink
+            text="Logout"
+            to="/logout/"
+            requireBrowserRefresh={true}
+            icon={ExitToAppIcon}
+            disabled={props.menuDisabled}
+          />
         </List>
       </div>
     </Drawer>

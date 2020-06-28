@@ -1,10 +1,13 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import { LoadableDashboard } from "./dashboard/LoadableDashboard";
+import { LoadableUserRoutes } from "./auth/LoadableUserRoutes";
 
 const App: React.FC = () => (
   <main className="App">
-    <LoadableDashboard />
+    <BrowserRouter>
+      <LoadableUserRoutes />
+    </BrowserRouter>
   </main>
 );
 
