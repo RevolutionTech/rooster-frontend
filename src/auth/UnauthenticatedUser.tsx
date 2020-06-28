@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 import { Button } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
-import { UserAppBar } from "../nav/UserAppBar";
+import { NavContainer } from "../nav/NavContainer";
 
 export const UnauthenticatedUser: React.FC<AxiosError> = (
   props: AxiosError
@@ -17,7 +17,7 @@ export const UnauthenticatedUser: React.FC<AxiosError> = (
   ) {
     return (
       <>
-        <UserAppBar>
+        <NavContainer menuDisabled={true}>
           <Button
             variant="contained"
             startIcon={<GitHubIcon />}
@@ -25,7 +25,7 @@ export const UnauthenticatedUser: React.FC<AxiosError> = (
           >
             Login with Github
           </Button>
-        </UserAppBar>
+        </NavContainer>
         <p>You must be signed in to view Rooster.</p>
       </>
     );
