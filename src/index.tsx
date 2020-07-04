@@ -1,8 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import axios from "axios";
+
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+
+// Source: https://www.techiediaries.com/django-react-forms-csrf-axios/
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 ReactDOM.render(
   <React.StrictMode>

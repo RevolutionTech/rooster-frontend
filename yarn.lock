@@ -10405,6 +10405,11 @@ type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+type-zoo@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/type-zoo/-/type-zoo-3.4.1.tgz#5b1e8ba0ad87445092eb5ba033f1a4db800a0eec"
+  integrity sha512-jwdBsJmFK9QJdD5Hb0ovFYl5Kz8SLfzNiNmPNRZYA+B9O22MiQma2qG39JBap/FSDWuPUJP9ISlf7kV8h82+FA==
+
 type@^1.0.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/type/-/type-1.2.0.tgz#848dd7698dafa3e54a6c479e759c4bc3f18847a0"

@@ -5,7 +5,7 @@ import axios from "axios";
 import { LoadableView } from "../common/Loadable";
 import { NavContainer } from "../nav/NavContainer";
 import { Dashboard } from "../dashboard/Dashboard";
-import { Settings } from "../settings/Settings";
+import { LoadableSettingsForm } from "../settings/LoadableSettingsForm";
 import { UnauthenticatedUserRoute } from "./UnauthenticatedUserRoute";
 
 interface User {
@@ -21,7 +21,7 @@ const AuthenticatedUserRoutes: React.FC<User> = (props: User) => (
   <>
     <NavContainer userInfo={<>Signed in as {props.full_name}.</>} />
     <Route path="/" exact component={Dashboard} />
-    <Route path="/settings/" exact component={Settings} />
+    <Route path="/settings/" exact component={LoadableSettingsForm} />
   </>
 );
 
