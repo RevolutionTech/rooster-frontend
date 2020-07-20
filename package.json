@@ -50,6 +50,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
     "type-zoo": "^3.4.1",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.7"
   }
 }
