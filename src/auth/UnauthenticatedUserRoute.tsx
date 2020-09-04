@@ -1,5 +1,5 @@
 import React from "react";
-import * as HttpStatus from "http-status-codes";
+import { StatusCodes } from "http-status-codes";
 import { AxiosError } from "axios";
 import { Button } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -12,7 +12,7 @@ export const UnauthenticatedUserRoute: React.FC<AxiosError> = (
   const response = props.response;
   if (
     response &&
-    response.status === HttpStatus.FORBIDDEN &&
+    response.status === StatusCodes.FORBIDDEN &&
     response.data.detail === "Authentication credentials were not provided."
   ) {
     return (
