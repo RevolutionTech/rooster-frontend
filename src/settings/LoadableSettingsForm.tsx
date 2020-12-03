@@ -22,9 +22,10 @@ const putSettings = async (settings: Settings) => {
 };
 
 const SettingsForm: React.FC<Settings> = (initial: Settings) => {
-  const [selectedJiraServerUrl, setSelectedJiraServerUrl] = React.useState<
-    string
-  >(initial.jira_server_url);
+  const [
+    selectedJiraServerUrl,
+    setSelectedJiraServerUrl,
+  ] = React.useState<string>(initial.jira_server_url);
   const [selectedJiraEmail, setSelectedJiraEmail] = React.useState<string>(
     initial.jira_email
   );
