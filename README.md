@@ -2,7 +2,7 @@
 
 #### A tool to review activity on GitHub for daily standup
 
-[![Build Status](https://travis-ci.com/RevolutionTech/rooster-frontend.svg?branch=master)](https://travis-ci.com/RevolutionTech/rooster-frontend)
+![CI](https://github.com/RevolutionTech/rooster-frontend/actions/workflows/ci.yml/badge.svg)
 
 ## Setup
 
