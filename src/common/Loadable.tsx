@@ -26,7 +26,8 @@ function useLoadable<T, E>(fetcher: () => Promise<T>): Loadable<T, E> {
         const data = await fetcher();
         setLoadable({ state: LoadableState.SUCCESS, data });
       } catch (error) {
-        setLoadable({ state: LoadableState.FAILURE, error });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        setLoadable({ state: LoadableState.FAILURE, error: error as any });
       }
     };
     fetchData();
