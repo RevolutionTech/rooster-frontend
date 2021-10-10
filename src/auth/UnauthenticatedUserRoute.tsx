@@ -6,9 +6,13 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { NavContainer } from "../nav/NavContainer";
 
-export const UnauthenticatedUserRoute: React.FC<AxiosError> = (
-  props: AxiosError
-) => {
+interface UnauthenticatedUserError {
+  detail: string;
+}
+
+export const UnauthenticatedUserRoute: React.FC<
+  AxiosError<UnauthenticatedUserError>
+> = (props: AxiosError<UnauthenticatedUserError>) => {
   const response = props.response;
   if (
     response &&
